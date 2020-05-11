@@ -29,25 +29,32 @@ switch (a) {
     break;
 }
 
-function concertThis() {axios.get("https://rest.bandsintown.com/artists/" + b + "/events?app_id=codingbootcamp")
-    .then(function (response) {    
-      var undefined = undefined
-      if (undefined){
-        console.log("unable to process")
-      } 
-      else{
+function concertThis() {
+  axios
+    .get(
+      "https://rest.bandsintown.com/artists/" +
+        b +
+        "/events?app_id=codingbootcamp"
+    )
+    .then(function (response) {
+      var undefined = undefined;
+      if (undefined) {
+        console.log("unable to process");
+      } else {
         console.log(response.data[0].venue.name);
-        console.log(response.data[0].venue.city + ", " + response.data[0].venue.country);
+        console.log(
+          response.data[0].venue.city + ", " + response.data[0].venue.country
+        );
         console.log(moment(response.data[0].datetime).format("MM/D/YYYY"));
       }
     });
 }
 function spotifyThis() {
   var spotify = new Spotify(keys.spotify);
-  var initial = false;
+  var play = false;
   if (b === undefined) {
     b = "the sign";
-    initial = true;
+    play = true;
   }
   spotify.search({ type: "track", query: b }, function (err, data) {
     if (err) {
@@ -60,4 +67,25 @@ function spotifyThis() {
       console.log(data.tracks.items[index].album.name);
     }
   });
+}
+
+function movieThis() {
+  var play = false;
+  if (b === undefined) {
+    b = "Mr. Nobody";
+    play = true;
+  }
+  axios
+    .get("http://www.omdbapi.com/?t=" + b + "&apikey=trilogy")
+    .then(function (response) {
+      // console.log(response.data);
+      console.log(`${response.data.title}`);
+      // console.log(response.data.year);
+      // console.log(response.data.raiting[0].Imdb);
+      // console.log(response.data.raiting[0].rottenTomatoes);
+      // console.log(response.data.country);
+      // console.log(response.data.language);
+      // console.log(response.data.plot);
+      // console.log(response.data.actors);
+    });
 }
