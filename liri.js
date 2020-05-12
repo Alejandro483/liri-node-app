@@ -12,20 +12,16 @@ var b = process.argv[3];
 
 switch (a) {
   case "concert-this":
-    console.log("concert's on");
     concertThis();
     break;
   case "spotify-this-song":
-    console.log("Spotify's on'");
     spotifyThis();
     break;
   case "movie-this":
-    console.log("movie's on");
     movieThis();
     break;
-  case "do-what-it-says":
-    console.log("do it now");
-    doThis();
+  case "I-want":
+    text();
     break;
 }
 
@@ -37,16 +33,13 @@ function concertThis() {
         "/events?app_id=codingbootcamp"
     )
     .then(function (response) {
-      var undefined = undefined;
-      if (undefined) {
-        console.log("unable to process");
-      } else {
-        console.log(response.data[0].venue.name);
-        console.log(
-          response.data[0].venue.city + ", " + response.data[0].venue.country
-        );
-        console.log(moment(response.data[0].datetime).format("MM/D/YYYY"));
-      }
+      console.log(response);
+      // console.log(response.data[0].venue.name);
+      //   console.log(
+      //     response.data[0].venue.city + ", " + response.data[0].venue.country
+      //   );
+      //   console.log(moment(response.data[0].datetime).format("MM/D/YYYY"));
+      // }
     });
 }
 function spotifyThis() {
@@ -78,14 +71,25 @@ function movieThis() {
   axios
     .get("http://www.omdbapi.com/?t=" + b + "&apikey=trilogy")
     .then(function (response) {
-      // console.log(response.data);
-      console.log(`${response.data.title}`);
-      // console.log(response.data.year);
-      // console.log(response.data.raiting[0].Imdb);
-      // console.log(response.data.raiting[0].rottenTomatoes);
-      // console.log(response.data.country);
-      // console.log(response.data.language);
-      // console.log(response.data.plot);
-      // console.log(response.data.actors);
+      // console.log(response.data)
+      console.log(response.data.Title);
+      console.log(response.data.Year);
+      // console.log(response.data.Raitings.Source[0].Imdb);
+      // console.log(response.data.Raitings.Source[0].Rotten Tomatoes);
+      console.log(response.data.Country);
+      console.log(response.data.Language);
+      console.log(response.data.Plot);
+      console.log(response.data.Actors);
     });
+}
+
+function text() {
+  fs.readFile("random.txt", "utf8", function (error, data) {
+    if (error) {
+      return console.log(error);
+    }
+    console.log(data);
+    var dataArr = data.split(",");
+    console.log(dataArr);
+  });
 }
