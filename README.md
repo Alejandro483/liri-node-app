@@ -30,4 +30,5 @@ _There are four main fucntions for this app._
 4.  `node liri.js do-what-it-says`
     This command is your personalized feature to run other functions.
     
+![Coding Codeline Codingrocks GIF-source (1)](https://user-images.githubusercontent.com/60376874/81891869-39b08680-956f-11ea-9993-ff1ffb26de9d.gif)
     
