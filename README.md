@@ -30,5 +30,4 @@ _There are four main fucntions for this app._
 4.  `node liri.js do-what-it-says`
     This command is your personalized feature to run other functions.
     
-<iframe src="https://giphy.com/embed/MYCuOS9Am8zMU6F8Qd" width="480" height="256" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/coding-codeline-codingrocks-MYCuOS9Am8zMU6F8Qd">via GIPHY</a></p>
-    
+![Alt Text](https://media.giphy.com/media/MYCuOS9Am8zMU6F8Qd/giphy.gif)
